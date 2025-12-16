@@ -8,7 +8,11 @@
 <link rel="icon" href="Icon.png">
 </head>
 <body>
-  <div class="background"></div>
+  <div class="background">
+    <video autoplay muted loop id="video-fons">
+      <source src="Video_background.mp4"/>
+    </video>
+  </div>
 <header class="header">
   <div class="logo-container">
     <a href="index.html"><img src="Icon.png" alt="Icona" class="img-icon"></a>
@@ -44,16 +48,41 @@
       <br>Dimecres 8:00 - 13:00 15:00 - 19:00
       <br>Dijous 8:00 - 13:00 15:00 - 19:00
       <br>Divendres 8:00 - 14:00
-      <br>Dissabte Tancat
-      <br>Diumenge Tancat
   </section>
 </main>
 <footer class="footer">
-    <h2>Contacta'ns</h2>
-    <p>Telèfon: 977 604 714</p>
-    <p>Email: <a href="mailto:formes@formesgrafiques.com" style="text-decoration:none; color: black;">formes@formesgrafiques.com</a></p>
-    <p>Adreça: Polígon Industrial - C. Blanquers, 90
-    <br>Aptat. Correus, 25 - 43800 VALLS</p>
+    <form class="formulari-card" action="" method="_blank">
+      <h1>Contacta'ns</h1>
+        <label for="nom">Nom:</label>
+        <input class="camps-formulari" type="text" id="nom" name="nom" required>
+        <label for="correu">Correu electrònic:</label>
+        <input class="camps-formulari" type="email" id="correu" name="correu" required>
+        <label for="telefon">Telèfon:</label>
+        <input class="camps-formulari" type="tel" id="telefon" name="telefon" required>
+        <label for="telefon">Consulta:</label>
+        <textarea class="camps-formulari" id="consulta" name="consulta" rows="4" required></textarea>
+        <br>
+        <checkbox-group>
+            <label><input type="checkbox" name="politica" value="Accepto les polítiques de privacitat" required> Accepto les polítiques de privacitat</label><br>
+        </checkbox-group>
+        <button class="button" type="submit">Enviar</button>    
+    </form>
 </footer>
+<script>
+    const card = document.querySelector('.formulari-card');
+
+    card.addEventListener('click', (e) => {
+    // Si l'element clicat és un input o un textarea, NO facis res (return)
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return;
+    }
+    if (e.target.tagName === 'BUTTON') {
+      card.classList.toggle('obert');
+    }
+    
+    // Si no és un input, llavors sí, obre o tanca
+  card.classList.toggle('obert');
+});
+</script>
 </body>
 </html>

@@ -143,15 +143,23 @@ nav ul li a:hover {
   background-color: #994500;
 }
 .background {
-  position: fixed;
+  position: fixed; 
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  object-fit: cover; 
   z-index: -1;
-  background-image: url('fons.png');
-  background-size: cover;
-  background-position: center center;
+}
+#video-fons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 200px;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center 55%; 
+    
+    z-index: -1;
 }
 .footer {
   position: fixed;
@@ -159,7 +167,7 @@ nav ul li a:hover {
   right: 10px;
   bottom: -140px;
   width: auto;
-  height: 200px;
+  height: 250px;
   background-color: #004080;
   background-image: url('header.jpg');
   color: #000;
@@ -171,25 +179,12 @@ nav ul li a:hover {
   transition: bottom 0.28s ease, box-shadow 0.28s ease;
   overflow: hidden;
   z-index: 2000;
-  cursor: grab;
   font-weight: bold;
   text-shadow: 1px 1px 2px #fff;
   font-size: 18px;
 }
 
-.footer:hover {
-  bottom: 0;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
-}
 
-.footer::before {
-  content: "";
-  display: block;
-  height: 40px;
-  width: 100%;
-  position: absolute;
-  top: -40px;
-}
 .mobile-menu-icon {
   display: none;
   font-size: 24px;
@@ -206,7 +201,7 @@ nav ul li a:hover {
   max-width: 1200px;
   margin: 20px auto;
   padding: 10px 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -220,7 +215,7 @@ nav ul li a:hover {
   max-width: 1200px;
   margin: 20px auto;
   padding: 10px 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -269,4 +264,53 @@ html, body {
     padding: 0;
     width: 100%;
     overflow-x: hidden;
+}
+.formulari-card {
+    position: fixed;
+    /* Centrat horitzontal */
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(20px);
+    padding: 0 24px; 
+    padding-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: -310px; /* Amagat */
+    transition: bottom 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Més suau */
+    cursor:pointer;
+}
+
+/* Estat obert (quan té la classe) */
+.formulari-card.obert {
+    bottom: 200px;
+    background-color: #0040805c; 
+}
+.button {
+    background-color: transparent;
+    backdrop-filter: blur(20px); /* Efecte de vidre per desenfocar el fons */
+    border-radius: 15px;
+    color:#ffffff;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.camps-formulari {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px); /* Efecte de vidre per desenfocar el fons */
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+
 }
