@@ -418,15 +418,14 @@ th, td { padding: 8px; font-size: 14px; }
 }
 
 .text-overlay {
-  /* Tornem a posar el text al centre, com a l'escriptori */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   
   /* Amplada i alçada */
-  width: 90%;  /* Ocupa gairebé tot l'ample */
-  max-height: 90%; /* Ocupa gairebé tota l'alçada si cal */
+  width: 90%;  
+  max-height: 90%; 
   
   /* Estil del fons */
   background-color: rgba(0, 0, 0, 0.7); /* Més fosc perquè es llegeixi millor */
@@ -440,8 +439,6 @@ th, td { padding: 8px; font-size: 14px; }
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  /* Assegurem que es vegi tot */
   overflow-y: auto; /* Si el text fos EXTREMADAMENT llarg, es podria fer scroll dins la caixa */
 }
 } 
