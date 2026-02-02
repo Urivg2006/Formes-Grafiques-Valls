@@ -24,6 +24,24 @@
     <link rel="icon" href="Icon.png">
 </head>
 <body>
+    <!--⚠️ DISCLAIMER-->
+    <div class="disclaimer-overlay" id="disclaimer">
+      <div class="disclaimer-box">
+          <h2>⚠️ DISCLAIMER / AVÍS LEGAL</h2>
+          <p>
+              Aquest és un projecte acadèmic i personal amb finalitats exclusivament d'aprenentatge. 
+              Aquest repositori <strong>NO</strong> és el lloc web oficial de <strong>Formes Gràfiques Valls, SA</strong>.
+          </p>
+          <p>
+              Tots els logotips, imatges, dissenys i noms comercials utilitzats en aquest projecte són propietat intel·lectual exclusiva de Formes Gràfiques Valls, SA.
+          </p>
+          <p>
+              La seva web oficial és: <br>
+              <a href="https://www.formesgrafiques.com/" target="_blank">https://www.formesgrafiques.com/</a>
+          </p>
+          <button class="btn-acceptar" id="btn-tancar-disclaimer">Entesos, continuar al projecte</button>
+      </div>
+    </div>
   <div>
     <video autoplay muted loop id="video-fons">
       <source src="Video_background.mp4"/>
@@ -137,20 +155,31 @@
     </div>
 </footer>
 <script>
+    // --- 1. Lògica del Disclaimer---
+    const disclaimer = document.getElementById('disclaimer');
+    const btnTancar = document.getElementById('btn-tancar-disclaimer');
+    if (btnTancar) {
+        btnTancar.addEventListener('click', () => {
+            disclaimer.classList.add('ocult');
+        });
+    }
+    // --- 2. Lògica del Formulari ---
     const card = document.querySelector('.formulari-card');
-
     card.addEventListener('click', (e) => {
-    // Si l'element clicat és un input o un textarea, NO facis res (return)
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-        return;
-    }
-    if (e.target.tagName === 'BUTTON') {
-      card.classList.toggle('obert');
-    }
-    
-    // Si no és un input, llavors sí, obre o tanca
-  card.classList.toggle('obert');
-});
+        // Obtenim l'element on s'ha fet clic
+        const element = e.target;
+
+        // Si cliquem a un camp de text, textarea o checkbox, NO volem tancar la pestanya
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.type === 'checkbox') {
+            return; // Sortim de la funció, no fem res
+        }
+
+        // Si cliquem al botó d'enviar (opcional: pots voler que tanqui o no)
+        // Si és un submit, la pàgina es recarregarà igualment si no fas un preventDefault.
+        
+        // Per a la resta de casos (clic al títol, al fons buit, etc.), fem el toggle
+        card.classList.toggle('obert');
+    });
 </script>
 </body>
 </html>
